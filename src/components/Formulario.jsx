@@ -1,21 +1,26 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-function Formulario({ onCalcular }) {
+function Formulario({ onSubmit }) {
   const [n, setN] = useState("");
 
+  const handleChange = (e) => setN(e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCalcular(Number(n));
+    onSubmit(n);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="number"
-        value={n}
-        onChange={(e) => setN(e.target.value)}
-        placeholder="Introduce un número"
-      />
+      <label>
+        Ingresa un número:
+        <input
+          type="number"
+          value={n}
+          onChange={handleChange}
+          min="1"
+          required
+        />
+      </label>
       <button type="submit">Calcular</button>
     </form>
   );

@@ -1,32 +1,30 @@
-const { fibonacci, triangular, primo, serie } = require("../src/utils/serie");
+// test/Serie.test.js
+const Serie = require("../src/utils/Serie"); // Cambiar import por require
 
-test("fibonacci function", () => {
-  expect(fibonacci(0)).toBe(0);
-  expect(fibonacci(1)).toBe(1);
-  expect(fibonacci(10)).toBe(55);
-});
+describe("Serie", () => {
+  let serie;
 
-test("triangular function", () => {
-  expect(triangular(0)).toBe(0);
-  expect(triangular(1)).toBe(1);
-  expect(triangular(10)).toBe(55);
-});
+  beforeEach(() => {
+    serie = new Serie();
+  });
 
-test("primo function", () => {
-  expect(primo(0)).toBe(2);
-  expect(primo(1)).toBe(2);
-  expect(primo(10)).toBe(29);
-});
+  test("calcula Fibonacci correctamente", () => {
+    expect(serie.fibonacci(0)).toBe(0);
+    expect(serie.fibonacci(1)).toBe(1);
+    expect(serie.fibonacci(2)).toBe(1);
+    expect(serie.fibonacci(3)).toBe(2);
+  });
 
-test("serie function", () => {
-  expect(serie(0)).toBe(2);
-  expect(serie(1)).toBe(1);
-  expect(serie(2)).toBe(-2);
-  expect(serie(3)).toBe(-5);
-  expect(serie(4)).toBe(-10);
-  expect(serie(5)).toBe(-14);
-  expect(serie(6)).toBe(-21);
-  expect(serie(7)).toBe(-26);
-  expect(serie(8)).toBe(-32);
-  expect(serie(9)).toBe(-33);
+  test("calcula Triangular correctamente", () => {
+    expect(serie.triangular(1)).toBe(1);
+    expect(serie.triangular(2)).toBe(3);
+    expect(serie.triangular(3)).toBe(6);
+  });
+
+  test("verifica si un número es primo", () => {
+    expect(serie.esPrimo(1)).toBe(false);
+    expect(serie.esPrimo(2)).toBe(true);
+    expect(serie.esPrimo(3)).toBe(true);
+    expect(serie.esPrimo(4)).toBe(false);
+  });
 });

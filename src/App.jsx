@@ -1,19 +1,21 @@
-import { useState } from "react";
+// src/App.js
+import React, { useState } from "react";
 import Formulario from "./components/Formulario";
-import Calculador from "./components/Calculador";
 import Resultado from "./components/Resultado";
+import Calculadora from "./utils/calculadora";
 
 function App() {
   const [resultado, setResultado] = useState(null);
 
-  const handleCalcular = (n) => {
-    setResultado(n);
+  const handleSubmit = (n) => {
+    const result = Calculadora.calcular(Number(n));
+    setResultado(result);
   };
 
   return (
     <div>
-      <Formulario onCalcular={handleCalcular} />
-      {resultado !== null && <Calculador n={resultado} />}
+      <h1>Calculadora de Serie</h1>
+      <Formulario onSubmit={handleSubmit} />
       {resultado !== null && <Resultado resultado={resultado} />}
     </div>
   );

@@ -1,5 +1,9 @@
 function Resultado({ resultado }) {
-  return <div>Resultado: {resultado}</div>;
+  return (
+    <div>
+      <h2>Resultado: {resultado}</h2>
+    </div>
+  );
 }
 
 export default Resultado;
