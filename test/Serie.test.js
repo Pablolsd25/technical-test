@@ -1,25 +1,32 @@
-import Serie from "../src/Serie";
+const { fibonacci, triangular, primo, serie } = require("../src/utils/serie");
 
-describe("Serie", () => {
-  let serie;
+test("fibonacci function", () => {
+  expect(fibonacci(0)).toBe(0);
+  expect(fibonacci(1)).toBe(1);
+  expect(fibonacci(10)).toBe(55);
+});
 
-  beforeEach(() => {
-    serie = new Serie();
-  });
+test("triangular function", () => {
+  expect(triangular(0)).toBe(0);
+  expect(triangular(1)).toBe(1);
+  expect(triangular(10)).toBe(55);
+});
 
-  test("fibonacci de 5 debe ser 5", () => {
-    expect(serie.fibonacci(5)).toBe(5);
-  });
+test("primo function", () => {
+  expect(primo(0)).toBe(2);
+  expect(primo(1)).toBe(2);
+  expect(primo(10)).toBe(29);
+});
 
-  test("triangular de 5 debe ser 15", () => {
-    expect(serie.triangular(5)).toBe(15);
-  });
-
-  test("primo de 5 debe ser 11", () => {
-    expect(serie.primo(5)).toBe(11);
-  });
-
-  test("calcularTermino de 5 debe ser -14", () => {
-    expect(serie.calcularTermino(5)).toBe(-14);
-  });
+test("serie function", () => {
+  expect(serie(0)).toBe(2);
+  expect(serie(1)).toBe(1);
+  expect(serie(2)).toBe(-2);
+  expect(serie(3)).toBe(-5);
+  expect(serie(4)).toBe(-10);
+  expect(serie(5)).toBe(-14);
+  expect(serie(6)).toBe(-21);
+  expect(serie(7)).toBe(-26);
+  expect(serie(8)).toBe(-32);
+  expect(serie(9)).toBe(-33);
 });
