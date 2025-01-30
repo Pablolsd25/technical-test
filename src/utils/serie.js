@@ -1,6 +1,6 @@
+// src/utils/serie.js
 class Serie {
-  // Método para calcular el número de Fibonacci
-  fibonacci(n) {
+  static fibonacci(n) {
     if (n <= 0) return 0;
     if (n === 1) return 1;
     let a = 0,
@@ -14,19 +14,22 @@ class Serie {
     return b;
   }
 
-  // Método para calcular el número triangular
-  triangular(n) {
+  static triangular(n) {
     return (n * (n + 1)) / 2;
   }
 
-  // Método para verificar si un número es primo
-  esPrimo(n) {
-    if (n <= 1) return false;
-    for (let i = 2; i < n; i++) {
-      if (n % i === 0) return false;
+  static esPrimo(n) {
+    if (n <= 1) return 0;
+    for (let i = 2, sqrt = Math.sqrt(n); i <= sqrt; i++) {
+      if (n % i === 0) return 0;
     }
-    return true;
+    return n;
+  }
+
+  static calculoSerie(n) {
+    return this.fibonacci(n) - 2 * this.triangular(n) + this.esPrimo(n);
   }
 }
 
-module.exports = Serie;
+// Exportación en ES Modules
+export default Serie;

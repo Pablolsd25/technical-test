@@ -1,26 +1,23 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 function Formulario({ onSubmit }) {
   const [n, setN] = useState("");
 
-  const handleChange = (e) => setN(e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(n);
+    onSubmit(parseInt(n, 10)); // Envía el valor de n al componente padre
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Ingresa un número:
-        <input
-          type="number"
-          value={n}
-          onChange={handleChange}
-          min="1"
-          required
-        />
-      </label>
+      <input
+        type="number"
+        value={n}
+        onChange={(e) => setN(e.target.value)}
+        placeholder="Introduce un número"
+        min="0"
+        required
+      />
       <button type="submit">Calcular</button>
     </form>
   );
