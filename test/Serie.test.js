@@ -1,6 +1,5 @@
 // test/Serie.test.js
-const Serie = require("../src/utils/serie");
-
+import Serie from "../src/utils/Serie.js"; // ✅ Importar con ".js"
 // Pruebas para la función fibonacci
 test("fibonacci function", () => {
   expect(Serie.fibonacci(0)).toBe(0); // Fibonacci(0) = 0
