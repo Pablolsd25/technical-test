@@ -1,0 +1,21 @@
+/* Asegurar que todo el contenido esté centrado */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Hace que ocupe toda la altura de la pantalla */
+  margin: 0;
+  background-color: #f4f4f4; /* Color de fondo opcional */
+  font-family: Arial, sans-serif; /* Fuente más limpia */
+}
+
+/* Centrar el contenedor principal */
+#root {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px; /* Opcional: para que no se vea muy ancho */
+  width: 100%;
+}

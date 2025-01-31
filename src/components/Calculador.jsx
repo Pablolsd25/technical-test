@@ -1,11 +1,10 @@
-// Calculador.jsx (ES Modules)
 import React from "react";
-import Serie from "../utils/serie"; // Importación correcta para ES Modules
+import Serie from "../utils/serie";
 
 function Calculador({ n, onResultadoCalculado }) {
   React.useEffect(() => {
     if (n !== null) {
-      const resultado = Serie.calculoSerie(n); // Usa la clase Serie
+      const resultado = Serie.calculoSerie(n);
       onResultadoCalculado(resultado);
     }
   }, [n, onResultadoCalculado]);

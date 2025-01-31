@@ -1,4 +1,3 @@
-// src/utils/serie.js
 class Serie {
   static fibonacci(n) {
     if (n <= 0) return 0;
@@ -25,11 +24,14 @@ class Serie {
     }
     return n;
   }
-
   static calculoSerie(n) {
-    return this.fibonacci(n) - 2 * this.triangular(n) + this.esPrimo(n);
+    const fibonacci = this.fibonacci(n);
+    const triangular = this.triangular(n);
+    const esPrimo = this.esPrimo(n);
+    const resultadoFinal = fibonacci - 2 * triangular + esPrimo;
+
+    return { fibonacci, triangular, esPrimo, resultadoFinal };
   }
 }
 
-// Exportación en ES Modules
 export default Serie;
