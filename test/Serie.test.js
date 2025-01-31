@@ -23,12 +23,12 @@ test("esPrimo function", () => {
   }
 });
 
-// Pruebas para la función calculoSerie
 test("calculoSerie function", () => {
   const expectedCalculoSerie = [
     0, -1, -3, -7, -17, -20, -34, -36, -51, -56, -55,
   ];
   for (let i = 0; i <= 10; i++) {
-    expect(Serie.calculoSerie(i)).toBe(expectedCalculoSerie[i]);
+    const { resultadoFinal } = Serie.calculoSerie(i); // Desestructurando solo resultadoFinal
+    expect(resultadoFinal).toBe(expectedCalculoSerie[i]);
   }
 });

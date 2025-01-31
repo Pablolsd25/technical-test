@@ -3,9 +3,12 @@ class Serie {
     if (n <= 0) return 0;
     if (n === 1) return 1;
     let a = 0,
-      b = 1;
+      b = 1,
+      temp;
     for (let i = 2; i <= n; i++) {
-      [a, b] = [b, a + b];
+      temp = a + b;
+      a = b;
+      b = temp;
     }
     return b;
   }
@@ -15,18 +18,19 @@ class Serie {
   }
 
   static esPrimo(n) {
-    if (n < 2) return 0;
-    for (let i = 2; i * i <= n; i++) {
+    if (n <= 1) return 0;
+    for (let i = 2, sqrt = Math.sqrt(n); i <= sqrt; i++) {
       if (n % i === 0) return 0;
     }
     return n;
   }
-
   static calculoSerie(n) {
-    const fib = Serie.fibonacci(n);
-    const tri = Serie.triangular(n);
-    const primo = Serie.esPrimo(n);
-    return fib - 2 * tri + primo;
+    const fibonacci = this.fibonacci(n);
+    const triangular = this.triangular(n);
+    const esPrimo = this.esPrimo(n);
+    const resultadoFinal = fibonacci - 2 * triangular + esPrimo;
+
+    return { fibonacci, triangular, esPrimo, resultadoFinal };
   }
 }
 
