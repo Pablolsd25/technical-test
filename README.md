@@ -1,4 +1,7 @@
-# Como correr el proyecto
-npm install Instalar dependencia
-npm run dev Correr programa
-npm test    Correr Test
+# Cómo correr el proyecto
+
+1. **Instalar dependencias**  
+   Ejecuta el siguiente comando para instalar todas las dependencias necesarias:
+   ```bash
+   npm install
+   
